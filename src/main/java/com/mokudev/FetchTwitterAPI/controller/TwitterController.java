@@ -33,10 +33,10 @@ public class TwitterController {
         for (String tweet : tweets) {
         	System.out.println(tweet);
         	TwitterModel model = new TwitterModel();
-        	model.setTweet(tweet);
+        	String substr = tweet.substring(0, tweet.length()-10);
+        	model.setTweet(substr);
         	String save = tesService.saveTweet(model);
         	System.out.println(save);
-            
         }
         return "Fetch Tweet data on "+ dateFormat.format(new Date(0));
 	}
